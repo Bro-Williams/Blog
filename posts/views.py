@@ -2,8 +2,10 @@ from django.shortcuts import render
 
 
 def index(request):
-    return render(request, 'posts/index.html')
+    context = {'title': 'My Blog'}
+    return render(request, 'posts/index.html', context)
 
 
 def post(request):
-    return render(request, 'posts/post.html')
+    context = {'title': 'My Blog - Пост'}
+    return render(request, 'posts/post.html', context)
