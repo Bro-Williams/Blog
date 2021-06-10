@@ -59,62 +59,25 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-            <div class="post-preview">
-                <a href="post.html">
-                    <h2 class="post-title">
-                        Человек должен исследовать - и это самое важное исследование
-                    </h2>
-                    <h3 class="post-subtitle">
-                        Проблемы выглядят очень маленькими с высоты 150 миль
-                    </h3>
-                </a>
-                <p class="post-meta">Опублековано от
-                    <a href="#">claudia_f</a>
-                    24 марта 2021</p>
-            </div>
-            <hr>
-            <div class="post-preview">
-                <a href="post.html">
-                    <h2 class="post-title">
-                        Я верю, что у каждого человека есть конечное число ударов сердца.
-                        Я не собираюсь тратить ни одного из своих.
-                    </h2>
-                </a>
-                <p class="post-meta">Опублековано от
-                    <a href="#">claudia_f</a>
-                    15 января 2021
-                </p>
-            </div>
-            <hr>
-            <div class="post-preview">
-                <a href="post.html">
-                    <h2 class="post-title">
-                        Наука еще не овладела пророчеством
-                    </h2>
-                    <h3 class="post-subtitle">
-                        Мы предсказываем слишком много на следующий год и все же слишком мало на следующие десять.
-                    </h3>
-                </a>
-                <p class="post-meta">Опублековано от
-                    <a href="#">claudia_f</a>
-                    5 декабря 2020</p>
-            </div>
-            <hr>
-            <div class="post-preview">
-                <a href="post.html">
-                    <h2 class="post-title">
-                        Неудача - это не вариант
-                    </h2>
-                    <h3 class="post-subtitle">
-                        Многие говорят, что исследования-это часть нашей судьбы, но на самом деле это наш долг перед
-                        будущими поколениями.
-                    </h3>
-                </a>
-                <p class="post-meta">Опублековано от
-                    <a href="#">claudia_f</a>
-                    11 ноября 2020</p>
-            </div>
-            <hr>
+            {% for post in posts %}
+                <div class="post-preview">
+                    <a href="post.html">
+                        <h2 class="post-title">
+                            {{ post.title }}
+                        </h2>
+                        {% if post.description %}
+                            <h3 class="post-subtitle">
+                                {{ post.description }}
+                            </h3>
+                        {% endif %}
+                    </a>
+                    <p class="post-meta">Опублековано от
+                        <a href="#">{{ post.user.username }}</a>
+                        {{ post.created_timestamp|date:"d F Y" }}
+                    </p>
+                </div>
+                <hr>
+            {% endfor %}
         </div>
     </div>
 </div>
